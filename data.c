@@ -31,7 +31,7 @@ void set_data(char **av, inputs_t *data)
 		replace_alias(data);
 		replace_token_var(data);
 	}
-}	
+}
 
 
 /**
