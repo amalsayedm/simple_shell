@@ -196,12 +196,12 @@ ssize_t get_input(inputs_t *);
 int _getline(inputs_t *, char **, size_t *);
 void copy_blocker(int);
 
-/*  getinfo.c */
-void clear_data(inputs_t *);
-void set_data(inputs_t *, char **);
-void free_data(inputs_t *, int);
+/* data.c */
+void set_data(char **av, inputs_t *data); /*get inputs_t data*/
+void clear_data(inputs_t *data); /*load inputs_t*/
+void free_data(inputs_t *data, int free_all); /*free inputs_t*/
 
-/*  environ.c */
+/* user_enviroment.c */
 char *dom_val(inputs_t *, const char *);
 int domain(inputs_t *);
 int new_envioremt(inputs_t *);
