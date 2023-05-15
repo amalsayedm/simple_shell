@@ -113,7 +113,6 @@ typedef struct data_passed
  * @type: the builtin command flag
  * @func: the function
  */
-
 typedef struct builtIn
 {
 	char *type;
@@ -191,29 +190,30 @@ int helper(inputs_t *);
 int archive(inputs_t *);
 int alias(inputs_t *);
 
-/* getline.c */
-ssize_t get_input(inputs_t *);
-int _getline(inputs_t *, char **, size_t *);
-void copy_blocker(int);
 
 /* data.c */
-void set_data(char **av, inputs_t *data); /*get inputs_t data*/
-void clear_data(inputs_t *data); /*load inputs_t*/
+void set_data(char **av, inputs_t *data);/*get inputs_t data*/
+void clear_data(inputs_t *data); /* load inputs_t*/
 void free_data(inputs_t *data, int free_all); /*free inputs_t*/
 
-/* useenviroment.c */
-int domain(inputs_t *); /*current environment*/
-int new_envioremt(inputs_t *); /*make new environment variable*/
-int remove_domain(inputs_t *); /*Remove an environment variable*/
+/*enviroment */
+int domain(inputs_t *data); /* print current environment*/
+int new_envioremt(inputs_t *data);  /*make new environment variable*/
+int remove_domain(inputs_t *data);  /*Remove an environment variable*/
 
-/* env*/ 
-char *dom_val(inputs_t *, const char *); /*value of an environ*/
-int occupied_domain(inputs_t *); /*enviroment linked list*/
+/*env*/
+char *dom_val(inputs_t *data, const char *env_name); /*value of an environ*/
+int occupied_domain(inputs_t *data); /*enviroment linked list*/
 
 /*  getenv.c */
 char **get_environ(inputs_t *);
 int _unsetenv(inputs_t *, char *);
 int _setenv(inputs_t *, char *, char *);
+
+/* getline.c */
+ssize_t get_input(inputs_t *);
+int _getline(inputs_t *, char **, size_t *);
+void copy_blocker(int);
 
 /*  history.c */
 char *get_history(inputs_t *data);
