@@ -201,12 +201,14 @@ void set_data(char **av, inputs_t *data); /*get inputs_t data*/
 void clear_data(inputs_t *data); /*load inputs_t*/
 void free_data(inputs_t *data, int free_all); /*free inputs_t*/
 
-/* user_enviroment.c */
-char *dom_val(inputs_t *, const char *);
-int domain(inputs_t *);
-int new_envioremt(inputs_t *);
-int remove_domain(inputs_t *);
-int occupied_domain(inputs_t *);
+/* useenviroment.c */
+int domain(inputs_t *); /*current environment*/
+int new_envioremt(inputs_t *); /*make new environment variable*/
+int remove_domain(inputs_t *); /*Remove an environment variable*/
+
+/* env*/ 
+char *dom_val(inputs_t *, const char *); /*value of an environ*/
+int occupied_domain(inputs_t *); /*enviroment linked list*/
 
 /*  getenv.c */
 char **get_environ(inputs_t *);
