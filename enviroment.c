@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
-domain - print current environment
-@data: pointer
-Return: 0
+* domain - print current environment
+* @data: pointer
+* Return: 0
 */
 
 int domain(inputs_t *data)
@@ -13,9 +13,9 @@ int domain(inputs_t *data)
 }
 
 /**
-new_envioremt - make new environment variable
-@data: pointer
-Return: 0
+* new_envioremt - make new environment variable
+* @data: pointer
+* Return: 0
 */
 
 int new_envioremt(inputs_t *data)
