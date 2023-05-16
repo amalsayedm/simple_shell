@@ -15,12 +15,14 @@ int check_abc(int abc)
 		return (0);
 }
 
+
 /**
-* check_delim - checks if character is a delimeter
-* @chars: the char to check
-* @delim: the delimeter str
-* Return: 1 if true, 0 if false
+* check_delim - checks if this char is a delimeter
+* @chars: char to be checked
+* @delim: delimeter str "special character"
+* Return: 1 or 0
 */
+
 int check_delim(char chars, char *delim)
 {
 	while (*delim)
@@ -28,6 +30,7 @@ int check_delim(char chars, char *delim)
 			return (1);
 	return (0);
 }
+
 
 /**
  * _atoi - converts a str to an integer
