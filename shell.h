@@ -120,7 +120,10 @@ typedef struct builtIn
 } builtIn_t;
 
 /*prototype*/
-/*loop_shell */
+/*shell_main */
+int main(int ac, char **av);
+
+/*shell_loop*/
 int shell_loop(inputs_t *, char **);
 int buildIn_finder(inputs_t *);
 void cmd_finder(inputs_t *);
@@ -200,11 +203,11 @@ int remove_domain(inputs_t *data);
 /*env*/
 char *dom_val(inputs_t *data, const char *env_name);
 int occupied_domain(inputs_t *data);
+char **get_environ(inputs_t *data);
 
-/*  getenv.c */
-char **get_environ(inputs_t *);
-int _unsetenv(inputs_t *, char *);
-int _setenv(inputs_t *, char *, char *);
+/*set_unset_enviroment.c */
+int _setenv(char *ev, char *e_val, inputs_t *data);
+int _unsetenv(char *ev, inputs_t *data);
 
 /* getline.c */
 ssize_t get_input(inputs_t *);
