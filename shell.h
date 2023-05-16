@@ -128,6 +128,7 @@ int shell_loop(inputs_t *, char **);
 int buildIn_finder(inputs_t *);
 void cmd_finder(inputs_t *);
 void cmd_fork(inputs_t *);
+int connected(inputs_t *);
 
 /* parser.c */
 int cmd(inputs_t *, char *);
@@ -172,11 +173,11 @@ void *redistribute(void *, unsigned int, unsigned int);
 /*  memory.c */
 int free_ptr(void **);
 
-/* atoi.c */
-int connected(inputs_t *);
-int check_delim(char, char *);
-int check_abc(int);
-int _atoi(char *);
+/* str/num conv */
+
+int check_abc(int abc);
+int check_delim(char chars, char *delim);
+int _atoi(char *converter)
 
 
 
