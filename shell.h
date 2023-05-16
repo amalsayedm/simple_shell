@@ -122,7 +122,7 @@ typedef struct builtIn
 /*prototype*/
 /*loop_shell */
 int shell_loop(inputs_t *, char **);
-int buildIn_finder(inputs_t_t *);
+int buildIn_finder(inputs_t *);
 void cmd_finder(inputs_t *);
 void cmd_fork(inputs_t *);
 
@@ -144,28 +144,24 @@ int decimal_10(int, int);
 char *num_converter(long int, int, int);
 void replace_hash(char *);
 
-/* string.c */
+/*stings maniuplation*/
 int _strlen(char *);
 int _strcmp(char *, char *);
 char *begain_with(const char *, const char *);
 char *_strcat(char *, char *);
-
-/* string1.c */
 char *_strcpy(char *, char *);
 char *_strdup(const char *);
 void _puts(char *);
 int _putchar(char);
-
-/* exits.c */
 char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
 char *_strchr(char *, char);
 
-/* tokenizer.c */
-char **tok_str(char *, char *);
-char **tok_str_b(char *, char);
+/* token */
+char **tok_str(char *s, char *b);
+char **tok_str_b(char *s, char b);
 
-/* realloc.c */
+/* realloc*/
 char *_memset(char *, char, unsigned int);
 void free_str(char **);
 void *redistribute(void *, unsigned int, unsigned int);
@@ -192,18 +188,18 @@ int alias(inputs_t *);
 
 
 /* data.c */
-void set_data(char **av, inputs_t *data);/*get inputs_t data*/
-void clear_data(inputs_t *data); /* load inputs_t*/
-void free_data(inputs_t *data, int free_all); /*free inputs_t*/
+void set_data(char **av, inputs_t *data);
+void clear_data(inputs_t *data);
+void free_data(inputs_t *data, int free_all);
 
 /*enviroment */
-int domain(inputs_t *data); /* print current environment*/
-int new_envioremt(inputs_t *data);  /*make new environment variable*/
-int remove_domain(inputs_t *data);  /*Remove an environment variable*/
+int domain(inputs_t *data);
+int new_envioremt(inputs_t *data);
+int remove_domain(inputs_t *data);
 
 /*env*/
-char *dom_val(inputs_t *data, const char *env_name); /*value of an environ*/
-int occupied_domain(inputs_t *data); /*enviroment linked list*/
+char *dom_val(inputs_t *data, const char *env_name);
+int occupied_domain(inputs_t *data);
 
 /*  getenv.c */
 char **get_environ(inputs_t *);
@@ -215,7 +211,7 @@ ssize_t get_input(inputs_t *);
 int _getline(inputs_t *, char **, size_t *);
 void copy_blocker(int);
 
-/*  history.c */
+/*  history_func*/
 char *get_history(inputs_t *data);
 int create_history(inputs_t *data);
 int read_history(inputs_t *data);
