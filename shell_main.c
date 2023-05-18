@@ -79,7 +79,7 @@ int buildIn_finder(inputs_t *data)
 
 /**
  * shell_loop - main shell loopi
- * @av: the argument vector 
+ * @av: the argument vector
  * @data: pointer
  * Return: 0 or 1
  */
@@ -89,8 +89,7 @@ int shell_loop(char **av, inputs_t *data)
 	ssize_t s = 0;
 	int returnedBI = 0;
 
-	while (s != -1 &&
-			returnedBI != -2)
+	while (s != -1 && returnedBI != -2)
 	{
 		clear_data(data);
 		if (connected(data))
@@ -102,6 +101,7 @@ int shell_loop(char **av, inputs_t *data)
 			set_data(data, av);
 			returnedBI = buildIn_finder(data);
 			if (returnedBI == -1)
+			{
 				cmd_finder(data);
 		}
 		else if (connected(data))
