@@ -99,6 +99,7 @@ int shell_loop(char **av, inputs_t *data)
 		if (s != -1)
 		{
 			set_data(data, av);
+			
 			returnedBI = buildIn_finder(data);
 			if (returnedBI == -1)
 			{
