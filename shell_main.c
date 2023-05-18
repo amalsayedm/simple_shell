@@ -43,6 +43,51 @@ int main(int ac, char **av)
 	return (EXIT_SUCCESS);
 }
 
+/**
+ * shell_loop - main shell loopi
+ * @av: the argument vector
+ * @data: pointer
+ * Return: 0 or 1
+ */
+
+int shell_loop(char **av, inputs_t *data)
+{
+	ssize_t s = 0;
+	int returnedBI = 0;
+
+	while (s != -1 && returnedBI != -2)
+	{
+		clear_data(data);
+		if (connected(data))
+			_puts("$ ");
+		putchar_stderr(BUF_FLUSH);
+		s = get_input(data);
+		if (s != -1)
+		{
+			set_data(data, av);
+			returnedBI = buildIn_finder(data);
+			if (returnedBI == -1)
+			{
+				cmd_finder(data);
+		}
+		else if (connected(data))
+			_putchar('\n');
+		free_data(data, 0);
+	}
+
+	create_history(data);
+	free_data(data, 1);
+	if (!connected(data) &&
+			data->status)
+		exit(data->status);
+	if (returnedBI == -2)
+	{
+		if (data->error_exit == -1)
+			exit(data->status);
+		exit(data->error_exit);
+	}
+	return (returnedBI);
+}
 
 /**
  * buildIn_finder - finds a builtin
@@ -74,52 +119,4 @@ int buildIn_finder(inputs_t *data)
 			break;
 		}
 	return (result_builtIn);
-}
-
-
-/**
- * shell_loop - main shell loopi
- * @av: the argument vector
- * @data: pointer
- * Return: 0 or 1
- */
-
-int shell_loop(char **av, inputs_t *data)
-{
-	ssize_t s = 0;
-	int returnedBI = 0;
-
-	while (s != -1 && returnedBI != -2)
-	{
-		clear_data(data);
-		if (connected(data))
-			_puts("$ ");
-		putchar_stderr(BUF_FLUSH);
-		s = get_input(data);
-		if (s != -1)
-		{
-			set_data(data, av);
-			
-			returnedBI = buildIn_finder(data);
-			if (returnedBI == -1)
-			{
-				cmd_finder(data);
-		}
-		else if (connected(data))
-			_putchar('\n');
-		free_data(data, 0);
-	}
-
-	create_history(data);
-	free_data(data, 1);
-	if (!connected(data) &&
-			data->status)
-		exit(data->status);
-	if (returnedBI == -2)
-	{
-		if (data->error_exit == -1)
-			exit(data->status);
-		exit(data->error_exit);
-	}
-	return (returnedBI);
 }
