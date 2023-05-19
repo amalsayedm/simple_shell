@@ -36,13 +36,13 @@ int shell_loop(char **av, inputs_t *data)
 	if (!connected(data) &&
 			data->status)
 		exit(data->status);
-	if (returnedBI == -2)
+	if (ret_BI == -2)
 	{
 		if (data->error_exit == -1)
 			exit(data->status);
 		exit(data->error_exit);
 	}
-	return (returnedBI);
+	return (ret_BI);
 }
 
 /**
