@@ -8,7 +8,7 @@
 
 int domain(inputs_t *data)
 {
-	list_str(data->env);
+	write_list_strings(data->env);
 	return (0);
 }
 
