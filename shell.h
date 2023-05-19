@@ -123,12 +123,14 @@ typedef struct builtIn
 /*shell_main */
 int main(int ac, char **av);
 
-/*shell_loop*/
-int shell_loop(inputs_t *, char **);
-int buildIn_finder(inputs_t *);
-void cmd_finder(inputs_t *);
-void cmd_fork(inputs_t *);
-int connected(inputs_t *);
+/*looping*/
+int shell_loop(char **av, inputs_t *data);
+int buildIn_finder(inputs_t *data);
+
+/*looping_helpers*/
+int connected(inputs_t *data);
+void cmd_finder(inputs_t *data);
+void cmd_fork(inputs_t *data);
 
 /* parser.c */
 int cmd(inputs_t *, char *);
@@ -177,7 +179,7 @@ int free_ptr(void **);
 
 int check_abc(int abc);
 int check_delim(char chars, char *delim);
-int _atoi(char *converter)
+int _atoi(char *converter);
 
 
 
