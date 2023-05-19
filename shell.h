@@ -176,22 +176,18 @@ void *redistribute(void *, unsigned int, unsigned int);
 int free_ptr(void **);
 
 /* str/num conv */
-
 int check_abc(int abc);
 int check_delim(char chars, char *delim);
 int _atoi(char *converter);
-
-
 
 /* buildin .c*/
 int exiting(inputs_t *);
 int _mycd(inputs_t *);
 int helper(inputs_t *);
-
-/*  builtin1.c */
 int archive(inputs_t *);
-int alias(inputs_t *);
 
+/* alias.c */
+int alias(inputs_t *data);
 
 /* data.c */
 void set_data(char **av, inputs_t *data);
