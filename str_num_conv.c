@@ -33,7 +33,7 @@ int check_delim(char chars, char *delim)
 
 
 /**
- * _atoi - converts a str to an integer
+ * _atoi - convert a str to an integer
  * @converter: the str to be converted
  * Return: 0 or convert numb
  */
