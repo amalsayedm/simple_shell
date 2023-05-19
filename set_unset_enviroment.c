@@ -65,7 +65,7 @@ int _unsetenv(char *ev, inputs_t *data)
 		ptr = begain_with(node->str, ev);
 		if (ptr && *ptr == '=')
 		{
-			data->env_changed = delete_index_node(&(data->env), s);
+			data->env_changed = delete_node(&(data->env), s);
 			s = 0;
 			node = data->env;
 			continue;
