@@ -67,7 +67,7 @@ void cmd_finder(inputs_t *data)
 void cmd_fork(inputs_t *data)
 {
 	pid_t child_pid = fork();
-	
+
 	if (child_pid == -1)
 	{
 		/* perror : printd descriptive error msg to be*/
