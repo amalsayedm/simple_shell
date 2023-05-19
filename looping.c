@@ -62,7 +62,7 @@ int buildIn_finder(inputs_t *data)
 		{"history", archive},
 		{"setenv", new_envioremt},
 		{"unsetenv", remove_domain},
-		{"cd", _mycd},
+		{"cd", cur_cd},
 		{"alias", alias},
 		{NULL, NULL}
 	};
