@@ -66,11 +66,11 @@ void free_data(inputs_t *data, int free_all)
 		if (!data->buf_cmd)
 			free(data->arg);
 		if (data->env)
-			list_free(&(data->env));
+			delete_list(&(data->env));
 		if (data->history)
-			list_free(&(data->history));
+			delete_list(&(data->history));
 		if (data->alias)
-			list_free(&(data->alias));
+			delete_list(&(data->alias));
 		free_str(data->environ);
 		data->environ = NULL;
 		free_ptr((void **)data->buf_cmd);
