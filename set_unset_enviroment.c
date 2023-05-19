@@ -38,7 +38,7 @@ int _setenv(char *ev, char *e_val, inputs_t *data)
 		node = node->next;
 	}
 
-	add_to_end_node(&(data->env), buf, 0);
+	addnode_to_end(&(data->env), buf, 0);
 	free(buf);
 	data->env_changed = 1;
 	return (0);

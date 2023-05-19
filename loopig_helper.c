@@ -36,7 +36,7 @@ void cmd_finder(inputs_t *data)
 			i++;
 	if (!i)
 		return;
-	path = path_finder(data, dom_val(data, "PATH="), data->av[0]);
+	path = get_path(data, dom_val(data, "PATH="), data->av[0]);
 	if (path)
 	{
 		data->path = path;
@@ -47,7 +47,7 @@ void cmd_finder(inputs_t *data)
 		if ((connected(data) ||
 					dom_val(data, "PATH=") ||
 					data->av[0][0] == '/') &&
-				cmd(data, data->av[0]))
+				check_cmd(data, data->av[0]))
 			cmd_fork(data);
 		else if (*(data->arg) != '\n')
 		{

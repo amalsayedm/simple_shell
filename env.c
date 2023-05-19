@@ -34,7 +34,7 @@ int occupied_domain(inputs_t *data)
 	size_t el;
 
 	for (el = 0; environ[el]; el++)
-		add_to_end_node(&node, environ[el], 0);
+	addnode_to_end(&node, environ[el], 0);
 	data->env = node;
 	return (0);
 }
