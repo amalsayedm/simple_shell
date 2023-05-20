@@ -137,6 +137,7 @@ int exiting(inputs_t *data);
 int helper(inputs_t *data);
 int archive(inputs_t *data);
 int cur_cd(inputs_t *data);
+void replace_hash(char *buf);
 int alias(inputs_t *data);
 
 
