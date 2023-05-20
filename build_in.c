@@ -106,9 +106,9 @@ int cur_cd(inputs_t *data)
 }
 
 /**
-replace_hash - replaces first instance of '#' with '\0'
-@buf: pointer
-Return: void
+* replace_hash - replaces first instance of '#' with '\0'
+* @buf: pointer
+* Return: void
 */
 
 void replace_hash(char *buf)
