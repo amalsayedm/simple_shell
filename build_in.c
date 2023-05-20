@@ -10,7 +10,7 @@ int exiting(inputs_t *data)
 {
 	int leave;
 
-	if (data->av[1])  
+	if (data->av[1])
 	{
 		leave = str_converter(data->av[1]);
 		if (leave == -1)
@@ -58,19 +58,16 @@ int archive(inputs_t *data)
 }
 
 /**
- * cur_cd - changes the current directory 
+ * cur_cd - changes the current directory
  * @data: pointer
  * Return: 0
  */
 
 int cur_cd(inputs_t *data)
 {
-	char *ptr, *poin;
-	char B = buffer[1024];
+	char *ptr, *poin, B = buffer[1024];
 	int ret_ch;
 
-	/*getcwd : places an absolute pathname of the curnt working directory*/
-	/*in the array pointer to by buff and returns buf*/
 	ptr = getcwd(B, 1024);
 	if (!ptr)
 		_puts("TODO: >>getcwd failure emsg here<<\n");
@@ -78,10 +75,7 @@ int cur_cd(inputs_t *data)
 	{
 		poin = dom_val(data, "HOME=");
 		if (!poin)
-			ret_ch = 
-				/*chdir :set woking directory to the specified folderin the absolute path*/
-				/*which is passed in the input argument str*/
-				chdir((poin = dom_val(data, "PWD=")) ? poin : "/");
+			ret_ch = chdir((poin = dom_val(data, "PWD=")) ? poin : "/");
 		else
 			ret_ch = chdir(poin);
 	}
@@ -94,8 +88,7 @@ int cur_cd(inputs_t *data)
 			return (1);
 		}
 		_puts(dom_val(data, "OLDPWD=")), _putchar('\n');
-		ret_ch = 
-			chdir((poin = dom_val(data, "OLDPWD=")) ? poin : "/");
+		ret_ch =  chdir((poin = dom_val(data, "OLDPWD=")) ? poin : "/");
 	}
 	else
 		ret_ch = chdir(data->av[1]);
