@@ -34,8 +34,23 @@ int occupied_domain(inputs_t *data)
 	size_t el;
 
 	for (el = 0; environ[el]; el++)
-		add_to_end_node(&node, environ[el], 0);
+	addnode_to_end(&node, environ[el], 0);
 	data->env = node;
 	return (0);
 }
 
+/**
+ * get_environ - returns the str array copy of our environ
+ * @data: pointer
+ * Return: Always 0
+ */
+
+char **get_environ(inputs_t *data)
+{
+	if (!data->environ || data->env_changed)
+	{
+		data->environ = str_list(data->env);
+		data->env_changed = 0;
+	}
+	return (data->environ);
+}

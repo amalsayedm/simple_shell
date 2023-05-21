@@ -122,29 +122,43 @@ typedef struct builtIn
 } builtIn_t;
 
 /*prototype*/
-/*loop_shell */
-int shell_loop(inputs_t *, char **);
-int buildIn_finder(inputs_t *);
-void cmd_finder(inputs_t *);
-void cmd_fork(inputs_t *);
+/*shell_main */
+int main(int ac, char **av);
+
+/*looping*/
+int shell_loop(char **av, inputs_t *data);
+int buildIn_finder(inputs_t *data);
+
+/*looping_helpers*/
+int connected(inputs_t *data);
+void cmd_finder(inputs_t *data);
+void cmd_fork(inputs_t *data);
+
+/*build_in*/
+int exiting(inputs_t *data);
+int helper(inputs_t *data);
+int archive(inputs_t *data);
+int cur_cd(inputs_t *data);
+void replace_hash(char *buf);
+int alias(inputs_t *data);
+
+
+/*enviroment */
+int domain(inputs_t *data);
+int new_envioremt(inputs_t *data);
+int remove_domain(inputs_t *data);
+
+/*env*/
+char *dom_val(inputs_t *data, const char *env_name);
+int occupied_domain(inputs_t *data);
+char **get_environ(inputs_t *data);
+
 
 /* parseing */
 int check_cmd(inputs_t *, char *);
 char *duplicate_chars(char *, int, int);
 char *get_path(inputs_t *, char *, char *);
 
-/* errors.c */
-void puts_str(char *);
-int putchar_stderr(char);
-int puts_fd(char c, int fd);
-int puts_str_fd(char *str, int fd);
-
-/*  erors1.c */
-int aoit2(char *);
-void error_msg(inputs_t *, char *);
-int decimal_10(int, int);
-char *num_converter(long int, int, int);
-void replace_hash(char *);
 
 /*stings maniuplation*/
 int _strlen(char *);
@@ -171,42 +185,19 @@ void *redistribute(void *, unsigned int, unsigned int);
 /*  memory.c */
 int free_ptr(void **p);
 
-/* atoi.c */
-int connected(inputs_t *);
-int check_delim(char, char *);
-int check_abc(int);
-int _atoi(char *);
-
-
-
-/* buildin .c*/
-int exiting(inputs_t *);
-int _mycd(inputs_t *);
-int helper(inputs_t *);
-
-/*  builtin1.c */
-int archive(inputs_t *);
-int alias(inputs_t *);
-
+/* str/num conv */
+int check_abc(int abc);
+int check_delim(char chars, char *delim);
+int _atoi(char *converter);
 
 /* data.c */
 void set_data(char **av, inputs_t *data);
 void clear_data(inputs_t *data);
 void free_data(inputs_t *data, int free_all);
 
-/*enviroment */
-int domain(inputs_t *data);
-int new_envioremt(inputs_t *data);
-int remove_domain(inputs_t *data);
-
-/*env*/
-char *dom_val(inputs_t *data, const char *env_name);
-int occupied_domain(inputs_t *data);
-
-/*  getenv.c */
-char **get_environ(inputs_t *);
-int _unsetenv(inputs_t *, char *);
-int _setenv(inputs_t *, char *, char *);
+/*set_unset_enviroment.c */
+int _setenv(char *ev, char *e_val, inputs_t *data);
+int _unsetenv(char *ev, inputs_t *data);
 
 /* getline*/
 ssize_t get_input(inputs_t *);
