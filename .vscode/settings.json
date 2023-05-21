@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "history_func": "c",
-        "token_func": "c"
+        "token_func": "c",
+        "linkedlist_func": "c",
+        "linkedlist_func1": "c"
     }
 }

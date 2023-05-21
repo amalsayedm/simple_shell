@@ -16,6 +16,8 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <errno.h>
+#include <signal.h>
+
 
 /* define and handling */
 /* convert number handling */
@@ -126,10 +128,10 @@ int buildIn_finder(inputs_t *);
 void cmd_finder(inputs_t *);
 void cmd_fork(inputs_t *);
 
-/* parser.c */
-int cmd(inputs_t *, char *);
-char *duplicated_char(char *, int, int);
-char *path_finder(inputs_t *, char *, char *);
+/* parseing */
+int check_cmd(inputs_t *, char *);
+char *duplicate_chars(char *, int, int);
+char *get_path(inputs_t *, char *, char *);
 
 /* errors.c */
 void puts_str(char *);
@@ -161,13 +163,13 @@ char *_strchr(char *, char);
 char **tok_str(char *s, char *b);
 char **tok_str_b(char *s, char b);
 
-/* realloc*/
+/* real_loc*/
 char *_memset(char *, char, unsigned int);
 void free_str(char **);
 void *redistribute(void *, unsigned int, unsigned int);
 
 /*  memory.c */
-int free_ptr(void **);
+int free_ptr(void **p);
 
 /* atoi.c */
 int connected(inputs_t *);
@@ -206,7 +208,7 @@ char **get_environ(inputs_t *);
 int _unsetenv(inputs_t *, char *);
 int _setenv(inputs_t *, char *, char *);
 
-/* getline.c */
+/* getline*/
 ssize_t get_input(inputs_t *);
 int _getline(inputs_t *, char **, size_t *);
 void copy_blocker(int);
@@ -218,14 +220,12 @@ int read_history(inputs_t *data);
 int history_list(inputs_t *data, char *buf, int linecount);
 int recall_history_list(inputs_t *data);
 
-/*  lists.c */
-link_t *add_to_begining_node(link_t **, const char *, int);
-link_t *add_to_end_node(link_t **, const char *, int);
-size_t list_str(const link_t *);
-int delete_index_node(link_t **, unsigned int);
-void list_free(link_t **);
-
-/*  lists1.c */
+/*  linkedlists functions */
+link_t *addnode_to_begining(link_t **, const char *, int);
+link_t *addnode_to_end(link_t **, const char *, int);
+size_t write_list_strings(const link_t *);
+int delete_node(link_t **, unsigned int);
+void delete_list(link_t **);
 size_t list_length(const link_t *);
 char **str_list(link_t *);
 size_t print_list(const link_t *);

@@ -10,8 +10,8 @@
 char **tok_str(char *str, char *d)
 {
 	char **ret;
-    int i, j, k, s;
-    int words_count = 0;
+	int i, j, k, s;
+	int words_count = 0;
 
 
 	if (str == NULL || str[0] == 0)
@@ -59,14 +59,14 @@ char **tok_str(char *str, char *d)
 char **tok_str_b(char *s, char b)
 {
 	int i, j, k, l;
-    int count = 0;
+	int count = 0;
 	char **ret;
 
 	if (s == NULL || s[0] == 0)
 		return (NULL);
 	for (i = 0; s[i] != '\0'; i++)
 		if ((s[i] != b && s[i + 1] == b) ||
-		    (s[i] != b && !s[i + 1]) || s[i + 1] == b)
+			(s[i] != b && !s[i + 1]) || s[i + 1] == b)
 			count++;
 	if (count == 0)
 		return (NULL);
