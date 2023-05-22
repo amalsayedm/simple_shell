@@ -39,7 +39,7 @@ char **tok_str(char *str, char *d)
 		{
 			for (k = 0; k < j; k++)
 				free(ret[k]);
-			free(s);
+			free(ret);
 			return (NULL);
 		}
 		for (s = 0; s < k; s++)
