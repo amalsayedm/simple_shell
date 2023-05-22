@@ -164,7 +164,7 @@ char **get_environ(inputs_t *data);
 /* getline*/
 ssize_t get_input(inputs_t *data, char **input, size_t *len);
 int _getline(inputs_t *data, char **ptr, size_t *length);
-void copy_blocker(int);
+ssize_t new_line(inputs_t *data);
 
 /*  history_func*/
 char *get_history(inputs_t *data);
