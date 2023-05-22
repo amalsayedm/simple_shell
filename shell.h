@@ -162,8 +162,8 @@ int occupied_domain(inputs_t *data);
 char **get_environ(inputs_t *data);
 
 /* getline*/
-ssize_t get_input(inputs_t *);
-int _getline(inputs_t *, char **, size_t *);
+ssize_t get_input(inputs_t *data, char **input, size_t *len);
+int _getline(inputs_t *data, char **ptr, size_t *length);
 void copy_blocker(int);
 
 /*  history_func*/
