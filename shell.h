@@ -175,7 +175,7 @@ int recall_history_list(inputs_t *data);
 
 /*  linkedlists functions */
 link_t *addnode_to_begining(link_t **, const char *, int);
-link_t *addnode_to_end(link_t **, const char *, int);
+link_t *addnode_to_end(link_t **head, const char *str, int index);
 size_t write_list_strings(const link_t *);
 int delete_node(link_t **, unsigned int);
 void delete_list(link_t **);
