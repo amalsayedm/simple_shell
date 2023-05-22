@@ -27,7 +27,7 @@ int replace_token_var(inputs_t *data)
 					_strdup(num_converter(getpid(), 10, 0)));
 			continue;
 		}
-		node = begain_with_node(data->env, &data->av[i][1], '=');
+		node = begain_with_node(data->env, &data->av[index][1], '=');
 		if (node)
 		{
 			replace_str(&(data->av[index]),
