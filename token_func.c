@@ -93,5 +93,5 @@ char **tok_str_b(char *s, char b)
 		ret[j][l] = 0;
 	}
 	ret[j] = NULL;
-	return (s);
+	return (ret);
 }
