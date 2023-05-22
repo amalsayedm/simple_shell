@@ -1,37 +1,5 @@
 #include "shell.h"
 
-/**
- * alias - built in alias
- * @data: pointer
- * Return: 0
- */
-
-int alias(inputs_t *data)
-{
-	int index = 0;
-	char *ptr = NULL;
-	link_t *node = NULL;
-
-	if (data->ac == 1)
-	{
-		node = data->alias;
-		while (node)
-		{
-			print_alias(node);
-			node = node->next;
-		}
-		return (0);
-	}
-	for (index = 1; data->av[index]; index++)
-	{
-		ptr = _strchr(data->av[index], '=');
-		if (ptr)
-			set_alias(data, data->av[index]);
-		else
-			print_alias(begain_with_node(data->alias, data->av[index], '='));
-	}
-	return (0);
-}
 
 /**
  * print_alias - prints an alias
@@ -99,4 +67,37 @@ int unset_alias(inputs_t *data, char *str)
 			node_index(data->alias, begain_with_node(data->alias, str, -1)));
 	*ptr = abc;
 	return (out_ret);
+}
+
+/**
+ * alias - built in alias
+ * @data: pointer
+ * Return: 0
+ */
+
+int alias(inputs_t *data)
+{
+	int index = 0;
+	char *ptr = NULL;
+	link_t *node = NULL;
+
+	if (data->ac == 1)
+	{
+		node = data->alias;
+		while (node)
+		{
+			print_alias(node);
+			node = node->next;
+		}
+		return (0);
+	}
+	for (index = 1; data->av[index]; index++)
+	{
+		ptr = _strchr(data->av[index], '=');
+		if (ptr)
+			set_alias(data, data->av[index]);
+		else
+			print_alias(begain_with_node(data->alias, data->av[index], '='));
+	}
+	return (0);
 }
