@@ -78,7 +78,7 @@ size_t j;
 		return (NULL);
 	for (i = 0; current_node; current_node = current_node->next, i++)
 	{
-		str = malloc(_strlen(current_node->s) + 1);
+		str = malloc(_strlen(current_node->str) + 1);
 		if (!str)
 		{
 			for (j = 0; j < i; j++)
@@ -87,7 +87,7 @@ size_t j;
 			return (NULL);
 		}
 
-		str = _strcpy(str, current_node->s);
+		str = _strcpy(str, current_node->str);
 		str_arr[i] = str;
 	}
 	str_arr[i] = NULL;
@@ -109,7 +109,7 @@ link_t *begain_with_node(link_t *node, char *prefix, char nextchar)
 
 	while (node)
 	{
-		temp = begain_with(node->s, prefix);
+		temp = begain_with(node->str, prefix);
 		if (temp && ((nextchar == -1) || (*temp == nextchar)))
 			return (node);
 		node = node->next;
