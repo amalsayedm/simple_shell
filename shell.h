@@ -218,7 +218,7 @@ void clear_data(inputs_t *data);
 void free_data(inputs_t *data, int free_all);
 
 /*set_unset_enviroment.c */
-int _setenv(char *ev, char *e_val, inputs_t *data);
+int _setenv( inputs_t *data, char *ev, char *e_val);
 int _unsetenv(char *ev, inputs_t *data);
 
 /* getline*/
