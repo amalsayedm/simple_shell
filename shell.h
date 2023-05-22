@@ -140,6 +140,14 @@ int helper(inputs_t *data);
 int archive(inputs_t *data);
 int cur_cd(inputs_t *data);
 void replace_hash(char *buf);
+void error_msg(inputs_t *data, char *str);
+void puts_str(char *str);
+int putchar_stderr(char abc);
+int decimal_10(int input, int fd);
+int str_converter(char *str);
+char *num_converter(int base, int flags, long int num);
+int puts_str_fd(int fd, char *str);
+int puts_fd(int fd, char abc);
 int alias(inputs_t *data);
 
 
