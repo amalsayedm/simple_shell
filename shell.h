@@ -173,7 +173,6 @@ int read_history(inputs_t *data);
 int history_list(inputs_t *data, char *buf, int linecount);
 int recall_history_list(inputs_t *data);
 
-
 /*  linkedlists functions */
 link_t *addnode_to_begining(link_t **, const char *, int);
 link_t *addnode_to_end(link_t **, const char *, int);
@@ -215,7 +214,8 @@ int replace_alias(inputs_t *data);
 
 /*set_unset_enviroment.c */
 int _setenv(inputs_t *data, char *ev, char *e_val);
-int _unsetenv(char *ev, inputs_t *data);
+int _unsetenv( inputs_t *data, char *ev);
+
 /* str/num conv */
 int check_abc(int abc);
 int check_delim(char chars, char *delim);
