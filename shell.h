@@ -123,7 +123,7 @@ typedef struct builtIn
 
 /*prototype*/
 /*shell_main */
-int main( char **av, int ac);
+int main(int ac, char **av);
 
 /* alais*/
 int alias(inputs_t *data);
