@@ -128,7 +128,7 @@ static char buf[READ_BUF_SIZE];
 
 ssize_t new_line(inputs_t *data)
 {
-	static char *buf; 
+	static char *buf;
 	static size_t index, ptr, lg;
 	ssize_t s = 0;
 	char **buf_p = &(data->arg), *p;
@@ -150,7 +150,7 @@ ssize_t new_line(inputs_t *data)
 			ptr++;
 		}
 
-		index = ptr+ 1;
+		index = ptr + 1;
 		if (index >= lg)
 		{
 			index = lg = 0;

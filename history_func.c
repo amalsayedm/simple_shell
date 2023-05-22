@@ -81,7 +81,7 @@ int read_history(inputs_t *data)
 		if (str[index] == '\n')
 		{
 			str[index] = 0;
-			 history_list(data, str + last, count++);
+			history_list(data, str + last, count++);
 			last = index + 1;
 		}
 	if (last != index)

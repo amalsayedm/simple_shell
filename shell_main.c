@@ -1,17 +1,18 @@
 #include "shell.h"
 
 /**
- * main - entry point
- * @ac: arg count
- * @av: vector
+ * main - main function
+ * @ac: argument count
+ * @av: argument data
 
  * Return: 0 or 1
  */
 
 int main(int ac, char **av)
 {
-	inputs_t data[] = { INFO_INIT };
+	
 	int fd = 2;
+	inputs_t data[] = {{ NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 0, 0 }};
 
 	asm ("mov %1, %0\n\t"
 			"add $3, %0"
@@ -43,4 +44,3 @@ int main(int ac, char **av)
 	shell_loop(data, av);
 	return (EXIT_SUCCESS);
 }
-

@@ -88,8 +88,8 @@ typedef struct data_passed
 {
 	char *arg;
 	char **av;
-	int ac;
 	char *path;
+	int ac;
 	unsigned int count_line;
 	int error_exit;
 	int linecount_flag;
@@ -100,7 +100,7 @@ typedef struct data_passed
 	char **environ;
 	int env_changed;
 	int status;
-	char **buf_cmd; /* pointer to cmd ; chain buffer, for memory mangement */
+	char **buf_cmd;
 	int type_cmd;
 	int readfd;
 	int count_history;

@@ -40,12 +40,12 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * starts_with - checks if string starts with another substring
+ * begain_with - checks if string starts with another substring
  * @mainstr: string to search
  * @substr: the substring
  * Return: address of next char of input string
  */
-char *starts_with(const char *mainstr, const char *substr)
+char *begain_with(const char *mainstr, const char *substr)
 {
 	while (*substr)
 		if (*substr++ != *mainstr++)
