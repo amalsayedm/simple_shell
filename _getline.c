@@ -1,5 +1,18 @@
 #include "shell.h"
 
+
+/**
+ * sigintHandler - blocks ctrl-C
+ * @num: the signal number
+ * Return: void
+ */
+void sigintHandler(__attribute__((unused))int num)
+{
+	_puts("\n");
+	_puts("$ ");
+	_putchar(BUF_FLUSH);
+}
+
 /**
  * get_input - get commands
  * @data: parameter struct
@@ -105,17 +118,4 @@ static char buf[READ_BUF_SIZE];
 		*length = s;
 	*ptr = p;
 	return (s);
-}
-
-/**
- * sigintHandler - blocks ctrl-C
- * @num: the signal number
- *
- * Return: void
- */
-void sigintHandler(__attribute__((unused))int num)
-{
-	_puts("\n");
-	_puts("$ ");
-	_putchar(BUF_FLUSH);
 }
