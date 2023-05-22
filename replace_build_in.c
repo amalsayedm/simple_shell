@@ -41,12 +41,12 @@ int replace_token_var(inputs_t *data)
 
 /**
  * replace_str - replaces str
- * @n: new str
  * @o: pointer
+ * @n: new str
  * Return: 1 or 0
  */
 
-int replace_str(char *n, char **o)
+int replace_str(char **o, char *n)
 {
 	free(*o);
 	*o = n;
