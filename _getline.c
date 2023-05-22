@@ -2,11 +2,11 @@
 
 
 /**
- * sigintHandler - blocks ctrl-C
+ * copy_blocker - blocks ctrl-C
  * @num: the signal number
  * Return: void
  */
-void sigintHandler(__attribute__((unused))int num)
+void copy_blocker(__attribute__((unused))int num)
 {
 	_puts("\n");
 	_puts("$ ");
@@ -29,7 +29,7 @@ ssize_t get_input(inputs_t *data, char **input, size_t *len)
 	{
 		free(*input);
 		*input = NULL;
-		signal(SIGINT, sigintHandler);
+		signal(SIGINT, copy_blocker);
 #if USE_GETLINE
 		read = getline(input, &len_p, stdin);
 #else
@@ -117,5 +117,50 @@ static char buf[READ_BUF_SIZE];
 	if (length)
 		*length = s;
 	*ptr = p;
+	return (s);
+}
+
+/**
+ * new_line - gets a line minus the newline
+ * @data: pointer
+ * Return: bytes read
+ */
+
+ssize_t new_line(inputs_t *data)
+{
+	static char *buf; 
+	static size_t index, ptr, lg;
+	ssize_t s = 0;
+	char **buf_p = &(data->arg), *p;
+
+	_putchar(BUF_FLUSH);
+	s = input_buf(data, &buf, &len);
+	if (s == -1) /* EOF */
+		return (-1);
+	if (lg)
+	{
+		ptr = index;
+		p = buf + index;
+
+		check_chain(data, buf, &ptr, index, lg);
+		while (ptr < lg)
+		{
+			if (chain_tester(data, buf, &ptr))
+				break;
+			ptr++;
+		}
+
+		index = ptr+ 1;
+		if (index >= lg)
+		{
+			index = lg = 0;
+			data->type_cmd = CMD_NORM;
+		}
+
+		*buf_p = p;
+		return (_strlen(p));
+	}
+
+	*buf_p = buf;
 	return (s);
 }
