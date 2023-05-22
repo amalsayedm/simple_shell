@@ -186,7 +186,7 @@ link_t *begain_with_node(link_t *, char *, char);
 ssize_t node_index(link_t *, link_t *);
 
 /*looping*/
-int shell_loop(inputs_t *data, char **av) ;
+int shell_loop(inputs_t *data, char **av);
 int buildIn_finder(inputs_t *data);
 
 /*looping_helpers*/
