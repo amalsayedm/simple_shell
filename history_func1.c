@@ -12,7 +12,7 @@ int history_list(inputs_t *data, char *str, int line_count)
 
 	if (data->history)
 		list = data->history;
-	add_node_end(&list, str, line_count);
+	addnode_to_end(&list, str, line_count);
 
 	if (!data->history)
 		data->history = list;
