@@ -28,7 +28,7 @@ int chain_tester(inputs_t *data, char *buf, size_t *ptr)
 	else if (buf[s] == ';')
 	{
 		buf[s] = 0;
-		data->type_cmd = MD_CHAIN;
+		data->type_cmd = CMD_CHAIN;
 	}
 	else
 		return (0);
