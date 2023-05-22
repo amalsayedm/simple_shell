@@ -89,7 +89,7 @@ int read_history(inputs_t *data)
 	free(str);
 	data->count_history = count;
 	while (data->count_history-- >= HIST_MAX)
-		addnode_to_end(&(data->history), 0);
+		delete_node(&(data->history), 0);
 	recall_history_list(data);
 	return (data->count_history);
 }
