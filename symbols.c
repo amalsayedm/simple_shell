@@ -46,7 +46,8 @@ int chain_tester(inputs_t *data, char *buf, size_t *ptr)
  * Return: Void
  */
 
-void check_chain(inputs_t *data, char *buf, size_t *ptr, size_t index, size_t lg)
+void check_chain(inputs_t *data, char *buf, size_t *ptr,
+		 size_t index, size_t lg)
 {
 	size_t s = *ptr;
 
