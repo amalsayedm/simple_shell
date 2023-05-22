@@ -51,7 +51,7 @@ char *num_converter(int base, int flags, long int num)
 	ptr = &buffer[49];
 	*ptr = '\0';
 	do	{
-		*--ptr = arr[n % base];
+		*--ptr = arr[ns % base];
 		ns /= base;
 	} while (n != 0);
 	if (sign)
