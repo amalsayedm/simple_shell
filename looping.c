@@ -2,12 +2,12 @@
 
 /**
  * shell_loop - main shell loop
- * @av: the argument vector
  * @data: pointer
+ * @av: the argument vector
  * Return: 0 or 1
  */
 
-int shell_loop(char **av, inputs_t *data)
+int shell_loop(, inputs_t *data, char **av)
 {
 	ssize_t s = 0;
 	int ret_BI = 0;
