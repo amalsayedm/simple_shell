@@ -135,7 +135,7 @@ link_t *addnode_to_end(link_t **head, const char *str, int index)
 	_memset((void *)temp_node, 0, sizeof(link_t));
 	if (str)
 	{
-		temp_node->s = _strdup(str);
+		temp_node->str = _strdup(str);
 		if (!temp_node->str)
 		{
 			free(temp_node);
