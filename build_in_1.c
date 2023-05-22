@@ -3,11 +3,11 @@
 /**
  * error_msg - prints an error message
  * @data: pointer
- * @estr: str containing specified error type
+ * @str: str for errors
  * Return: void
  */
 
-void error_msg(inputs_t *data, char *estr)
+void error_msg(inputs_t *data, char *str)
 {
 	puts_str(data->file_name);
 	puts_str(": ");
@@ -15,7 +15,7 @@ void error_msg(inputs_t *data, char *estr)
 	puts_str(": ");
 	puts_str(data->av[0]);
 	puts_str(": ");
-	puts_str(estr);
+	puts_str(str);
 }
 
 /**
