@@ -53,8 +53,7 @@ char *num_converter(int base, int flags, long int num)
 	do	{
 		*--ptr = arr[n % base];
 		ns /= base;
-	} 
-	while (n != 0);
+	}while (n != 0);
 	if (sign)
 		*--ptr = sign;
 	return (ptr);
