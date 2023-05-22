@@ -209,7 +209,7 @@ void *redistribute(void *, unsigned int, unsigned int);
 
 /*replace build in */
 int replace_token_var(inputs_t *data);
-int replace_str(char *n, char **o);
+int replace_str(char **o, char *n);
 int replace_alias(inputs_t *data);
 
 /*set_unset_enviroment.c */
