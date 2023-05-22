@@ -81,11 +81,11 @@ int read_history(inputs_t *data)
 		if (str[index] == '\n')
 		{
 			str[index] = 0;
-			 recall_history_list(data, str + last, count++);
+			 history_list(data, str + last, count++);
 			last = index + 1;
 		}
 	if (last != index)
-		recall_history_list(data, str + last, count++);
+		history_list(data, str + last, count++);
 	free(str);
 	data->count_history = count;
 	while (data->count_history-- >= HIST_MAX)
