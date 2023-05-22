@@ -1,5 +1,28 @@
 #include "shell.h"
 
+/**
+ * unset_alias - sets alias to str
+ * @data: parameter struct
+ * @str: str alias
+ * Return: 0 or 1
+ */
+
+int unset_alias(inputs_t *data, char *str)
+{
+	char *ptr;
+	char abc;
+	int out_ret;
+
+	ptr = _strchr(str, '=');
+	if (!ptr)
+		return (1);
+	abc = *ptr;
+	*ptr = 0;
+	out_ret = delete_node(&(data->alias),
+			node_index(data->alias, begain_with_node(data->alias, str, -1)));
+	*ptr = abc;
+	return (out_ret);
+}
 
 /**
  * print_alias - prints an alias
@@ -25,6 +48,7 @@ int print_alias(link_t *node)
 	return (1);
 }
 
+
 /**
  * set_alias - sets alias
  * @str:  str alias
@@ -45,29 +69,6 @@ int set_alias(char *str, inputs_t *data)
 	return (addnode_to_end(&(data->alias), str, 0) == NULL);
 }
 
-/**
- * unset_alias - sets alias to str
- * @data: parameter struct
- * @str: str alias
- * Return: 0 or 1
- */
-
-int unset_alias(inputs_t *data, char *str)
-{
-	char *ptr;
-	char abc;
-	int out_ret;
-
-	ptr = _strchr(str, '=');
-	if (!ptr)
-		return (1);
-	abc = *ptr;
-	*ptr = 0;
-	out_ret = delete_node(&(data->alias),
-			node_index(data->alias, begain_with_node(data->alias, str, -1)));
-	*ptr = abc;
-	return (out_ret);
-}
 
 /**
  * alias - built in alias
