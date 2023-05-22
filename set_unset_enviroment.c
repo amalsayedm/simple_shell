@@ -20,7 +20,7 @@ int _setenv(inputs_t *data, char *ev, char *e_val)
 
 	if (!buf)
 		return (1);
-	_strcptry(buf, ev_val);
+	_strcpy(buf, e_val);
 	_strcat(buf, "=");
 	_strcat(buf, e_val);
 	node = data->env;
