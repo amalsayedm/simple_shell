@@ -7,7 +7,7 @@
  * Return: 0 or 1
  */
 
-int shell_loop(, inputs_t *data, char **av)
+int shell_loop(inputs_t *data, char **av)
 {
 	ssize_t s = 0;
 	int ret_BI = 0;
