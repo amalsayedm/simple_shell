@@ -15,7 +15,7 @@ void delete_list(link_t **head_ptr)
 	while (current_node)
 	{
 		next_node = current_node->next;
-		free(current_node->s);
+		free(current_node->str);
 		free(current_node);
 		current_node = next_node;
 	}
@@ -32,7 +32,7 @@ size_t write_list_strings(const link_t *h)
 
 	while (h)
 	{
-		_puts(h->s ? h->s : "(nil)");
+		_puts(h->str ? h->str : "(nil)");
 		_puts("\n");
 		h = h->next;
 		i++;
@@ -58,7 +58,7 @@ int delete_node(link_t **head, unsigned int index)
 	{
 		current_node = *head;
 		*head = (*head)->next;
-		free(current_node->s);
+		free(current_node->str);
 		free(current_node);
 		return (1);
 	}
@@ -68,7 +68,7 @@ int delete_node(link_t **head, unsigned int index)
 		if (i == index)
 		{
 			prev_node->next = current_node->next;
-			free(current_node->s);
+			free(current_node->str);
 			free(current_node);
 			return (1);
 		}
@@ -101,8 +101,8 @@ link_t *addnode_to_begining(link_t **head, const char *str, int index)
 	temp_head->num = index;
 	if (str)
 	{
-		temp_head->s = _strdup(str);
-		if (!temp_head->s)
+		temp_head->str = _strdup(str);
+		if (!temp_head->str)
 		{
 			free(temp_head);
 			return (NULL);
@@ -136,7 +136,7 @@ link_t *addnode_to_end(link_t **head, const char *str, int index)
 	if (str)
 	{
 		temp_node->s = _strdup(str);
-		if (!temp_node->s)
+		if (!temp_node->str)
 		{
 			free(temp_node);
 			return (NULL);
