@@ -134,7 +134,7 @@ ssize_t new_line(inputs_t *data)
 	char **buf_p = &(data->arg), *p;
 
 	_putchar(BUF_FLUSH);
-	s = get_input(data, &buf, &len);
+	s = get_input(data, &buf, &lg);
 	if (s == -1)
 		return (-1);
 	if (lg)
