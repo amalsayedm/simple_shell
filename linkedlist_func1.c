@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * node_index - gets the index of a node
  * @head: pointer to head
@@ -33,7 +34,7 @@ size_t print_list(const link_t *head)
 		_puts(num_converter(head->num, 10, 0));
 		_putchar(':');
 		_putchar(' ');
-		_puts(head->s ? head->s : "(nil)");
+		_puts(head->str ? head->str : "(nil)");
 		_puts("\n");
 		head = head->next;
 		count++;
