@@ -46,12 +46,12 @@ int _setenv(inputs_t *data, char *ev, char *e_val)
 
 /**
  * _unsetenv - Remove environment
- * @ev: str enviroment
  * @data: pointer
+ * @ev: str enviroment
  * Return: 1 or 0
  */
 
-int _unsetenv(char *ev, inputs_t *data)
+int _unsetenv(inputs_t *data, char *ev)
 {
 	link_t *node = data->env;
 	size_t s = 0;
