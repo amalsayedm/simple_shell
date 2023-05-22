@@ -65,10 +65,10 @@ int archive(inputs_t *data)
 
 int cur_cd(inputs_t *data)
 {
-	char *ptr, *poin, B = buffer[1024];
+	char *ptr, *poin, buffer[1024];
 	int ret_ch;
 
-	ptr = getcwd(B, 1024);
+	ptr = getcwd(buffer, 1024);
 	if (!ptr)
 		_puts("TODO: >>getcwd failure emsg here<<\n");
 	if (!data->av[1])
@@ -100,7 +100,7 @@ int cur_cd(inputs_t *data)
 	else
 	{
 		_setenv(data, "OLDPWD", dom_val(data, "PWD="));
-		_setenv(data, "PWD", getcwd(B, 1024));
+		_setenv(data, "PWD", getcwd(buffer, 1024));
 	}
 	return (0);
 }
