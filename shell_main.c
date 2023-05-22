@@ -10,7 +10,7 @@
 
 int main(int ac, char **av)
 {
-	inputs_t data[] = { data_INIT };
+	inputs_t data[] = { INFO_INIT };
 	int fd = 2;
 
 	asm ("mov %1, %0\n\t"
