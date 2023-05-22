@@ -2,12 +2,13 @@
 
 /**
  * main - entry point
- * @av: vector
  * @ac: arg count
+ * @av: vector
+
  * Return: 0 or 1
  */
 
-int main(char **av, int ac)
+int main(int ac, char **av)
 {
 	inputs_t data[] = { data_INIT };
 	int fd = 2;
