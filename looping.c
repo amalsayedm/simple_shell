@@ -18,7 +18,7 @@ int shell_loop(inputs_t *data, char **av)
 		if (connected(data))
 			_puts("$ ");
 		putchar_stderr(BUF_FLUSH);
-		s = get_input(data);
+		s = new_line(data);
 		if (s != -1)
 		{
 			set_data(av, data);
