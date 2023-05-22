@@ -148,7 +148,13 @@ int str_converter(char *str);
 char *num_converter(int base, int flags, long int num);
 int puts_str_fd(int fd, char *str);
 int puts_fd(int fd, char abc);
+
+/* alais*/
 int alias(inputs_t *data);
+int print_alias(link_t *node);
+int set_alias(inputs_t *data, char *str);
+int unset_alias(inputs_t *data, char *str);
+
 
 /*replace build in */
 int replace_token_var(inputs_t *data);
