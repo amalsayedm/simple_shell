@@ -85,7 +85,7 @@ int read_history(inputs_t *data)
 			last = index + 1;
 		}
 	if (last != index)
-		build_history_list(data, str + last, count++);
+		recall_history_list(data, str + last, count++);
 	free(str);
 	data->count_history = count;
 	while (data->count_history-- >= HIST_MAX)
