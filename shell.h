@@ -150,6 +150,10 @@ int puts_str_fd(int fd, char *str);
 int puts_fd(int fd, char abc);
 int alias(inputs_t *data);
 
+/*replace build in */
+int replace_token_var(inputs_t *data);
+int replace_str(char **o, char *n);
+int replace_alias(inputs_t *data);
 
 /*enviroment */
 int domain(inputs_t *data);
@@ -161,6 +165,10 @@ char *dom_val(inputs_t *data, const char *env_name);
 int occupied_domain(inputs_t *data);
 char **get_environ(inputs_t *data);
 
+/*symbols*/
+int chain_tester(inputs_t *data, char *buf, size_t *ptr);
+void check_chain(inputs_t *data, char *buf, size_t *ptr,
+		 size_t index, size_t lg);
 
 /* parseing */
 int check_cmd(inputs_t *, char *);
@@ -230,12 +238,5 @@ char **str_list(link_t *);
 size_t print_list(const link_t *);
 link_t *begain_with_node(link_t *, char *, char);
 ssize_t node_index(link_t *, link_t *);
-
-/*  vars.c */
-int chain_tester(inputs_t *, char *, size_t *);
-void check_chain(inputs_t *, char *, size_t *, size_t, size_t);
-int replace_alias(inputs_t *);
-int replace_token_var(inputs_t *);
-int replace_str(char **, char *);
 
 #endif
