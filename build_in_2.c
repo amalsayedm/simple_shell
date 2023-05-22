@@ -66,7 +66,7 @@ char *num_converter(int base, int flags, long int num)
  * Return: number of chars
  */
 
-int puts_str_fd(int fd, char *str)
+int puts_str_fd( char *str, int fd)
 {
 	int index = 0;
 
