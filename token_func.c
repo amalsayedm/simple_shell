@@ -24,8 +24,8 @@ char **tok_str(char *str, char *d)
 
 	if (words_count == 0)
 		return (NULL);
-	s = malloc((1 + words_count) * sizeof(char *));
-	if (!s)
+	ret = malloc((1 + words_count) * sizeof(char *));
+	if (!ret)
 		return (NULL);
 	for (i = 0, j = 0; j < words_count; j++)
 	{
