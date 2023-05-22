@@ -51,12 +51,12 @@ int print_alias(link_t *node)
 
 /**
  * set_alias - sets alias
+  * @data: pointer
  * @str:  str alias
- * @data: pointer
  * Return: 0 or 1
  */
 
-int set_alias(char *str, inputs_t *data)
+int set_alias(inputs_t *data, char *str)
 {
 	char *ptr;
 
