@@ -51,14 +51,14 @@ extern char **environ;
 /**
  * struct listL - linked list
  * @num: field number
- * @s: str
+ * @str: str
  * @next: points to the next node
  */
 
 typedef struct listL
 {
 	int num;
-	char *s;
+	char *str;
 	struct listL *next;
 } link_t;
 
