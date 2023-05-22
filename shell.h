@@ -125,14 +125,11 @@ typedef struct builtIn
 /*shell_main */
 int main(int ac, char **av);
 
-/*looping*/
-int shell_loop(char **av, inputs_t *data);
-int buildIn_finder(inputs_t *data);
-
-/*looping_helpers*/
-int connected(inputs_t *data);
-void cmd_finder(inputs_t *data);
-void cmd_fork(inputs_t *data);
+/* alais*/
+int alias(inputs_t *data);
+int print_alias(link_t *node);
+int set_alias(inputs_t *data, char *str);
+int unset_alias(inputs_t *data, char *str);
 
 /*build_in*/
 int exiting(inputs_t *data);
@@ -149,17 +146,10 @@ char *num_converter(int base, int flags, long int num);
 int puts_str_fd(int fd, char *str);
 int puts_fd(int fd, char abc);
 
-/* alais*/
-int alias(inputs_t *data);
-int print_alias(link_t *node);
-int set_alias(inputs_t *data, char *str);
-int unset_alias(inputs_t *data, char *str);
-
-
-/*replace build in */
-int replace_token_var(inputs_t *data);
-int replace_str(char **o, char *n);
-int replace_alias(inputs_t *data);
+/* data.c */
+void set_data(char **av, inputs_t *data);
+void clear_data(inputs_t *data);
+void free_data(inputs_t *data, int free_all);
 
 /*enviroment */
 int domain(inputs_t *data);
@@ -171,16 +161,65 @@ char *dom_val(inputs_t *data, const char *env_name);
 int occupied_domain(inputs_t *data);
 char **get_environ(inputs_t *data);
 
-/*symbols*/
-int chain_tester(inputs_t *data, char *buf, size_t *ptr);
-void check_chain(inputs_t *data, char *buf, size_t *ptr,
-		 size_t index, size_t lg);
+/* getline*/
+ssize_t get_input(inputs_t *);
+int _getline(inputs_t *, char **, size_t *);
+void copy_blocker(int);
+
+/*  history_func*/
+char *get_history(inputs_t *data);
+int create_history(inputs_t *data);
+int read_history(inputs_t *data);
+int history_list(inputs_t *data, char *buf, int linecount);
+int recall_history_list(inputs_t *data);
+
+
+/*  linkedlists functions */
+link_t *addnode_to_begining(link_t **, const char *, int);
+link_t *addnode_to_end(link_t **, const char *, int);
+size_t write_list_strings(const link_t *);
+int delete_node(link_t **, unsigned int);
+void delete_list(link_t **);
+size_t list_length(const link_t *);
+char **str_list(link_t *);
+size_t print_list(const link_t *);
+link_t *begain_with_node(link_t *, char *, char);
+ssize_t node_index(link_t *, link_t *);
+
+/*looping*/
+int shell_loop(inputs_t *data, char **av) ;
+int buildIn_finder(inputs_t *data);
+
+/*looping_helpers*/
+int connected(inputs_t *data);
+void cmd_finder(inputs_t *data);
+void cmd_fork(inputs_t *data);
+
+/*  memory.c */
+int free_ptr(void **p);
 
 /* parseing */
 int check_cmd(inputs_t *, char *);
 char *duplicate_chars(char *, int, int);
 char *get_path(inputs_t *, char *, char *);
 
+/* real_loc*/
+char *_memset(char *, char, unsigned int);
+void free_str(char **);
+void *redistribute(void *, unsigned int, unsigned int);
+
+/*replace build in */
+int replace_token_var(inputs_t *data);
+int replace_str(char **o, char *n);
+int replace_alias(inputs_t *data);
+
+/*set_unset_enviroment.c */
+int _setenv(inputs_t *data, char *ev, char *e_val);
+int _unsetenv(char *ev, inputs_t *data);
+/* str/num conv */
+int check_abc(int abc);
+int check_delim(char chars, char *delim);
+int _atoi(char *converter);
 
 /*stings maniuplation*/
 int _strlen(char *);
@@ -195,54 +234,14 @@ char *_strncpy(char *, char *, int);
 char *_strncat(char *, char *, int);
 char *_strchr(char *, char);
 
+/*symbols*/
+int chain_tester(inputs_t *data, char *buf, size_t *ptr);
+void check_chain(inputs_t *data, char *buf, size_t *ptr,
+		 size_t index, size_t lg);
+
 /* token */
 char **tok_str(char *s, char *b);
 char **tok_str_b(char *s, char b);
 
-/* real_loc*/
-char *_memset(char *, char, unsigned int);
-void free_str(char **);
-void *redistribute(void *, unsigned int, unsigned int);
-
-/*  memory.c */
-int free_ptr(void **p);
-
-/* str/num conv */
-int check_abc(int abc);
-int check_delim(char chars, char *delim);
-int _atoi(char *converter);
-
-/* data.c */
-void set_data(char **av, inputs_t *data);
-void clear_data(inputs_t *data);
-void free_data(inputs_t *data, int free_all);
-
-/*set_unset_enviroment.c */
-int _setenv(inputs_t *data, char *ev, char *e_val);
-int _unsetenv(char *ev, inputs_t *data);
-
-/* getline*/
-ssize_t get_input(inputs_t *);
-int _getline(inputs_t *, char **, size_t *);
-void copy_blocker(int);
-
-/*  history_func*/
-char *get_history(inputs_t *data);
-int create_history(inputs_t *data);
-int read_history(inputs_t *data);
-int history_list(inputs_t *data, char *buf, int linecount);
-int recall_history_list(inputs_t *data);
-
-/*  linkedlists functions */
-link_t *addnode_to_begining(link_t **, const char *, int);
-link_t *addnode_to_end(link_t **, const char *, int);
-size_t write_list_strings(const link_t *);
-int delete_node(link_t **, unsigned int);
-void delete_list(link_t **);
-size_t list_length(const link_t *);
-char **str_list(link_t *);
-size_t print_list(const link_t *);
-link_t *begain_with_node(link_t *, char *, char);
-ssize_t node_index(link_t *, link_t *);
 
 #endif
