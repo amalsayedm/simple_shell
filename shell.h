@@ -214,7 +214,7 @@ int replace_alias(inputs_t *data);
 
 /*set_unset_enviroment.c */
 int _setenv(inputs_t *data, char *ev, char *e_val);
-int _unsetenv( inputs_t *data, char *ev);
+int _unsetenv(inputs_t *data, char *ev);
 
 /* str/num conv */
 int check_abc(int abc);
