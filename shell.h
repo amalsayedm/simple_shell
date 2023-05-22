@@ -143,7 +143,7 @@ int putchar_stderr(char abc);
 int decimal_10(int input, int fd);
 int str_converter(char *str);
 char *num_converter(int base, int flags, long int num);
-int puts_str_fd(int fd, char *str);
+int puts_str_fd( char *str, int fd);
 int puts_fd(int fd, char abc);
 
 /* data.c */
