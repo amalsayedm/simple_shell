@@ -38,7 +38,7 @@ int create_history(inputs_t *data)
 		return (-1);
 	for (link = data->history; link; link = link->next)
 	{
-		puts_str_fd(link->s, fd);
+		puts_str_fd(link->str, fd);
 		puts_fd('\n', fd);
 	}
 	puts_fd(BUF_FLUSH, fd);
@@ -89,7 +89,7 @@ int read_history(inputs_t *data)
 	free(str);
 	data->count_history = count;
 	while (data->count_history-- >= HIST_MAX)
-		delete_node_at_index(&(data->history), 0);
+		addnode_to_end(&(data->history), 0);
 	recall_history_list(data);
 	return (data->count_history);
 }
