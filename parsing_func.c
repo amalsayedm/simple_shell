@@ -37,7 +37,7 @@ char *get_path(inputs_t *data, char *path, char *cmd)
 
 	if (!path)
 		return (NULL);
-	if ((_strlen(cmd) > 2) && starts_with(cmd, "./"))
+	if ((_strlen(cmd) > 2) && begain_with(cmd, "./"))
 	{
 		if (check_cmd(data, cmd))
 			return (cmd);
