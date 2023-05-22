@@ -13,7 +13,7 @@ int replace_token_var(inputs_t *data)
 
 	for (index = 0; data->av[index]; index++)
 	{
-		if (data->av[index][0] != '$' || !data->av[i][1])
+		if (data->av[index][0] != '$' || !data->av[index][1])
 			continue;
 		if (!_strcmp(data->av[index], "$?"))
 		{
