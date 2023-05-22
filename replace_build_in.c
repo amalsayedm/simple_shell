@@ -57,7 +57,7 @@ int replace_str(char **o, char *n)
  * replace_alias - replaces aliases
  * @data: poibter
  * Return: 1 or 0
- * */
+ */
 
 int replace_alias(inputs_t *data)
 {
@@ -81,4 +81,3 @@ int replace_alias(inputs_t *data)
 	}
 	return (1);
 }
-
