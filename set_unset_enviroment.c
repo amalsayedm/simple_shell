@@ -2,13 +2,13 @@
 
 /**
  * _setenv - Initialize a new environment
+ * @data: pointer
  * @ev: str enviroment
  * @e_val: str "ev value"
- * @data: pointer
  * Return: 0
  */
 
-int _setenv(char *ev, char *e_val, inputs_t *data)
+int _setenv(inputs_t *data, char *ev, char *e_val)
 {
 	char *buf = NULL;
 	link_t *node;
