@@ -4,15 +4,15 @@
  * main - main function
  * @ac: argument count
  * @av: argument data
-
  * Return: 0 or 1
  */
 
 int main(int ac, char **av)
 {
-	
-	int fd = 2;
-	inputs_t data[] = {{ NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, 0, 0, 0 }};
+int fd = 2;
+inputs_t data[] = {{ NULL, NULL, NULL,
+0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL,
+0, 0, NULL, 0, 0, 0 }};
 
 	asm ("mov %1, %0\n\t"
 			"add $3, %0"
